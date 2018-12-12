@@ -1,0 +1,59 @@
+﻿@model IEnumerable<LibraryApplication.Domain.Entities.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Books List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndYear)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Publisher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndYear)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookId }) |
+            @Html.ActionLink("Reviews", "Reviews", new { id = item.BookId })
+
+        </td>
+    </tr>
+}
+
+</table>

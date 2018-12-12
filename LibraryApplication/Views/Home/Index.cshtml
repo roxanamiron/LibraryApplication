@@ -1,0 +1,23 @@
+﻿@model IEnumerable<LibraryApplication.Models.BookListViewModel>
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<form method="get">
+
+    <input type="search" name="searchTerm" />
+    <input type="submit" value="Search By Name" />
+
+</form>
+
+@foreach(var item in Model)
+{
+    <div>
+        <h4>@item.Title</h4>
+        <div>@item.Publisher, @item.Country</div>
+        <hr/>
+    </div>
+}
+
