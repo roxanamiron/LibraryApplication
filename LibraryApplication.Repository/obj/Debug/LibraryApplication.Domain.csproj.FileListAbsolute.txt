@@ -1,6 +1,5 @@
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\obj\Debug\LibraryApplication.Repository.dll
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\obj\Debug\LibraryApplication.Repository.pdb
-F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\obj\Debug\LibraryApplication.Domain.csprojResolveAssemblyReference.cache
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\ApplicationInsights.config
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\roslyn\csc.exe
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -35,3 +34,9 @@ F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplicati
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\Microsoft.AI.WindowsServer.xml
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\Microsoft.ApplicationInsights.xml
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\Newtonsoft.Json.dll
+F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\System.Net.Http.Formatting.dll
+F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\Newtonsoft.Json.pdb
+F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\Newtonsoft.Json.xml
+F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\bin\System.Net.Http.Formatting.xml
+F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication.Repository\obj\Debug\LibraryApplication.Domain.csprojResolveAssemblyReference.cache

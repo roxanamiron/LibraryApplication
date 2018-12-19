@@ -1,0 +1,25 @@
+﻿@model IEnumerable<LibraryApplication.Domain.Entities.Book>
+
+@{
+    ViewBag.Title = "Retrive";
+}
+
+<h2>Retrive</h2>
+
+
+<form asp-controller="BooksController" asp-action="GetBooks" method="get">
+    <p>
+        <input type="search" name="searchTerm" />
+        <input type="submit" value="Search By Name" />
+    </p>
+</form>
+
+
+@foreach (var item in Model)
+{
+    <div>
+        <h4>@item.Title</h4>
+        <div>@item.Publisher, @item.Country</div>
+        <hr />
+    </div>
+}

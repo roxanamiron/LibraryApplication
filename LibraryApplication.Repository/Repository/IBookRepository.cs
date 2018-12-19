@@ -9,6 +9,7 @@ namespace LibraryApplication.Domain.Repository
 {
     public interface IBookRepository : IBaseRepository<Book>
     {
-
+       
     }
+       
 }

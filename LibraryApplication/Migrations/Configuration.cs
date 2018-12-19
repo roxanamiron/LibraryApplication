@@ -1,7 +1,6 @@
 namespace LibraryApplication.Migrations
 {
     using Domain.Entities;
-    using Models;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -13,7 +12,6 @@ namespace LibraryApplication.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "LibraryApplication.Models.LibraryApplicationDb";
         }
 
         protected override void Seed(LibraryApplication.LibraryApplicationDb context)
@@ -22,21 +20,24 @@ namespace LibraryApplication.Migrations
             {
                 new Book
                 {
+
                     Title = "Red Dragon",
                     Publisher = "Delacorte Press",
                     StartYear = 1999
                 },
                 new Book
                 {
+
                     Title = "Hannibal",
                     Publisher = "Delacorte Press",
                     StartYear = 1984
                 },
                 new Book
                 {
+
                     Title = "Hannibal Rise",
                     Publisher = "Delacorte Press",
-                    StartYear = 1990,
+                    StartYear = 1194,
                     //Reviews =
                     //new List<BooksReviews>
                     //{
@@ -45,13 +46,12 @@ namespace LibraryApplication.Migrations
             }
             };
 
-           
-            for(int i= 0; i < 1000; i++)
+
+            for (int i = 0; i < 1000; i++)
             {
                 context.Books.AddOrUpdate(b => b.Title,
                     new Book { Title = "Istoria iubirii", Publisher = "Cartpedia", StartYear = 2010 });
             }
-           
         }
     }
 }

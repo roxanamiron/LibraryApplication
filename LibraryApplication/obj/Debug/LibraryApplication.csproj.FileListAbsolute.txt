@@ -82,3 +82,6 @@ F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplicati
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication\obj\Debug\LibraryApplication.dll
 F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication\obj\Debug\LibraryApplication.pdb
+F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication\bin\System.Net.Http.Formatting.dll
+F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication\bin\Newtonsoft.Json.pdb
+F:\Cursuri\Building Applications with ASP.NET MVC 4\Assingments\LibraryApplication\LibraryApplication\bin\System.Net.Http.Formatting.xml

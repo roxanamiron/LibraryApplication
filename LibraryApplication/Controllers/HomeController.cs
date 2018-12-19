@@ -1,8 +1,9 @@
-﻿using LibraryApplication.Models;
+﻿using LibraryApplication.Domain.Entities;
+using LibraryApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net.Http;
 using System.Web.Mvc;
 
 namespace LibraryApplication.Controllers
@@ -10,22 +11,25 @@ namespace LibraryApplication.Controllers
     public class HomeController : Controller
     {
         LibraryApplicationDb _db = new LibraryApplicationDb();
-        public ActionResult Index(string searchTerm = null)
+
+       
+
+
+        public ActionResult Index(string searchTerm = null, int page = 1 )
         {
             var model =
                 _db.Books
                 .OrderBy(b => b.Title)
                 .Where(b => searchTerm == null || b.Title.StartsWith(searchTerm))
-                .Take(50)
+                .Take(7)
                 .Select(b => new BookListViewModel
                 {
                     Title = b.Title,
-                    Publisher = b.Publisher,                    
+                    Publisher = b.Publisher,
                     StartYear = b.StartYear,
                     EndYear = b.EndYear
-                    
-                }
-                );          
+
+                } );
 
 
             return View(model);
@@ -46,7 +50,7 @@ namespace LibraryApplication.Controllers
         }
         protected override void Dispose(bool disposing)
         {
-            if(_db != null)
+            if (_db != null)
             {
                 _db.Dispose();
             }
@@ -54,4 +58,5 @@ namespace LibraryApplication.Controllers
         }
 
     }
+
 }

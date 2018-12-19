@@ -5,12 +5,38 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Web.Mvc;
 using LibraryApplication.Domain.Entities;
+using System.Threading.Tasks;
+using LibraryApplication.Repository.Entities;
 
 namespace LibraryApplication.Controllers
 {
     public class BooksController : Controller
     {
         public static List<Book> _booksList;
+
+        public async Task<ActionResult> Retrive(string searchTerm, int? page)
+        {
+            Counter counter = await API_Services.ApiServices.GetBooksNumber();
+            // 
+            for (int i = 1; i < counter.totalItems; i++)
+            {
+
+                // call APIServices.getBooks for each page  
+                var books = await API_Services.ApiServices.GetBooks(searchTerm, i);
+
+                if (i == page - 1)
+                {
+                    if (page == null)
+                    {
+                        return View("PageNotFount");
+                    }
+                    Console.WriteLine("This is the last page");
+                }
+            }
+            return View();
+        }
+
+
 
         static BooksController()
         {
@@ -96,6 +122,7 @@ namespace LibraryApplication.Controllers
 
         public ActionResult Edit(int id)
         {
+           
             Book books = BooksController._booksList.Single<Book>((Book r) => r.BookId == id);
             return base.View(books);
         }
@@ -104,6 +131,7 @@ namespace LibraryApplication.Controllers
         public ActionResult Edit(int id, FormCollection collection)
         {
             ActionResult action;
+           
             Book books = BooksController._booksList.Single<Book>((Book r) => r.BookId == id);
             if (!base.TryUpdateModel<Book>(books))
             {

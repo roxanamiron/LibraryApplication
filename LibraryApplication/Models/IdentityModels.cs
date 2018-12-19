@@ -30,5 +30,6 @@ namespace LibraryApplication.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<LibraryApplication.Domain.Entities.Book> Books { get; set; }
     }   
 }
