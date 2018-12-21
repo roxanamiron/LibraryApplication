@@ -7,10 +7,10 @@ using System.Web;
 
 namespace LibraryApplication.Domain.Repository
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public class DbRepository<T> : IBaseRepository<T> where T : class
     {
         protected readonly DbContext Context;
-        public BaseRepository(DbContext context)
+        public DbRepository(DbContext context)
         {
             Context = context;
         }

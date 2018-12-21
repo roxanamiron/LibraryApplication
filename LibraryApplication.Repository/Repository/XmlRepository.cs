@@ -10,7 +10,7 @@ namespace LibraryApplication.Repository.Repository
     public class XmlRepository : IBookRepository
     {
 
-        public static void SaveBooks()
+        public static void Serialization()
         {
 
             List<Book> books = new List<Book>();

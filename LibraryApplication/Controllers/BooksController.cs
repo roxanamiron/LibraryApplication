@@ -7,22 +7,57 @@ using System.Web.Mvc;
 using LibraryApplication.Domain.Entities;
 using System.Threading.Tasks;
 using LibraryApplication.Repository.Entities;
+using LibraryApplication.Domain.Repository;
 
 namespace LibraryApplication.Controllers
 {
     public class BooksController : Controller
     {
+        
         public static List<Book> _booksList;
+        private IBaseRepository<Book> bookRepository;
 
         public async Task<ActionResult> Retrive(string searchTerm, int? page)
         {
+            // 1. Delete all books in Local repository
+
+
+            
+
+
+            List<Book> book = new List<Book>();
+            book.RemoveAll(delegate (Book b)
+            {
+                return b.BookId == 1;
+            });
+
+            //var repo = new DbRepository<Book>()
+            //IEnumerable<Book> deleteBooks = repo.RemoveAll();
+
+
             Counter counter = await API_Services.ApiServices.GetBooksNumber();
-            // 
-            for (int i = 1; i < counter.totalItems; i++)
+            // todo: calculate totalpages 
+
+
+            //var totalpages = counter.totalItems;
+            var totalpages = (int)Math.Ceiling((double)counter.totalItems / counter.itemsPerPage);
+
+     
+            for (int i = 1; i < totalpages; i++)
             {
 
-                // call APIServices.getBooks for each page  
+                // 2. call APIServices.getBooks for each page  
                 var books = await API_Services.ApiServices.GetBooks(searchTerm, i);
+
+                // 3. Save books with repository  IBaseRepository/void AddRange(IEnumerable<T> entity);
+
+                var repo = new DbRepository<Book>(books);
+            
+                //IEnumerable<Book> saveBooks = repo.AddRange() ;     
+
+                
+                
+
 
                 if (i == page - 1)
                 {
@@ -73,6 +108,13 @@ namespace LibraryApplication.Controllers
 
         public BooksController()
         {
+            this.bookRepository = new DbRepository(<Book>);
+
+        }
+
+        public BooksController(IBaseRepository<Book> bookRepository)
+        {
+            this.bookRepository = bookRepository;
         }
 
         public ActionResult Create()
@@ -127,22 +169,41 @@ namespace LibraryApplication.Controllers
             return base.View(books);
         }
 
+
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit([Bind(Include ="Title, Country, Publisher")] BookListViewModel book)
         {
-            ActionResult action;
-           
-            Book books = BooksController._booksList.Single<Book>((Book r) => r.BookId == id);
-            if (!base.TryUpdateModel<Book>(books))
+            try
             {
-                action = base.View(books);
+                if(ModelState.IsValid)
+                {
+                    bookRepository.Add();
+                }
             }
-            else
-            {
-                action = base.RedirectToAction("Index");
-            }
-            return action;
         }
+
+
+
+
+
+
+
+        //[HttpPost]
+        //public ActionResult Edit(int id, FormCollection collection)
+        //{
+        //    ActionResult action;
+           
+        //    Book books = BooksController._booksList.Single<Book>((Book r) => r.BookId == id);
+        //    if (!base.TryUpdateModel<Book>(books))
+        //    {
+        //        action = base.View(books);
+        //    }
+        //    else
+        //    {
+        //        action = base.RedirectToAction("Index");
+        //    }
+        //    return action;
+        //}
 
         public ActionResult Index()
         {
@@ -150,6 +211,7 @@ namespace LibraryApplication.Controllers
                 from b in BooksController._booksList
                 orderby b.Title
                 select b;
+
 
             var books = MvcApplication.BookRepository.GetAll();
 
